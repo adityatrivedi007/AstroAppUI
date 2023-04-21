@@ -70,11 +70,15 @@ export class HomeComponent {
   _houses:house;
   _houselist:house[]=[];
   uniquekey:number=0;
+  _kundliList:kundli[]=[]
+  kundliCheckBoxDisabled = false;
+  kundliType:string;
 
   ngOnInit()
   {
     this._houses = new house();
-    this.getHouses();  
+    this.getHouses(); 
+    this.getkundlis(); 
   }
  
   getplanets()
@@ -110,10 +114,37 @@ export class HomeComponent {
     ]
 console.log(this._houselist);
   }
+
+  getkundlis()
+  {
+    this._kundliList = [
+      {id:1,name:"Lagna Kundli",isSelected:false},
+      {id:2,name:"Varsha Kundli",isSelected:false}
+    ]
+  }
+
+  
+  checkedNumber: number =0;
+  limitNumber: number = 1;
+  onKundliChange()
+  {
+    this.kundliType = this._kundliList.filter(x=>x.isSelected==true).map(x=>x.id).toString();
+    if(this.kundliType.length>0)
+    {
+     this.checkedNumber++
+    }
+    else
+    {
+      this.checkedNumber--
+    }
+    console.log("Hii"+this.checkedNumber)
+  }
   onchange()
   {
-    console.log(this._houselist);
+
   }
+  
+
   onsubmit()
   {
     // this._houses.planetid = this._planetlist.filter(x=>x.isselected==true).map(x=>x.id).join(",").toString();
@@ -155,39 +186,49 @@ console.log(this._houselist);
     for (const house in this._houselist) {
       let planets = []
       let housName = this._houselist[house].name;
-        for(const planet in this._houselist[house].planetList)
+      let kundliTypeName = ""
+      if(this.kundliType == "1")
+      {
+       kundliTypeName = "LK"
+      }
+      else
+      {
+       kundliTypeName = "VK"
+      }
+      console.log("Yooo"+kundliTypeName)
+      for(const planet in this._houselist[house].planetList)
+      {
+        if(this._houselist[house].planetList[planet].isselected == true)
         {
-          if(this._houselist[house].planetList[planet].isselected == true)
-          {
-            planets.push(this._houselist[house].planetList[planet].name)
-          }
+          planets.push(this._houselist[house].planetList[planet].name)
         }
-        if(housName == "1" || housName == "7" || housName == "4" || housName == "10")
-        {
-        this.house1(housName,planets);
-        }
-        if(housName == "2" || housName == "12")
-        {
-        this.house2(housName,planets);
-        }
-        if(housName == "3" || housName == "11" || housName == "9" || housName == "5")
-        {
-        this.house3(housName,planets);
-        }
+      }
+      if(housName == "1" || housName == "7" || housName == "4" || housName == "10")
+      {
+      this.house1(housName,planets,kundliTypeName);
+      }
+      if(housName == "2" || housName == "12")
+      {
+      this.house2(housName,planets,kundliTypeName);
+      }
+      if(housName == "3" || housName == "11" || housName == "9" || housName == "5")
+      {
+      this.house3(housName,planets,kundliTypeName);
+      }
 
-        if(housName == "6" || housName == "8")
-        {
-        this.house6(housName,planets);
-        }
+      if(housName == "6" || housName == "8")
+      {
+      this.house6(housName,planets,kundliTypeName);
+      }
     }
   }
 
-  house1(housName:string,planets:string[])
+  house1(housName:string,planets:string[],kundliTypeName:string)
   {
     var count =1;
-    let planetTextR1 = document.getElementById("VK"+housName+"1")
-    let planetTextR2 = document.getElementById("VK"+housName+"2")
-    let planetTextR3 = document.getElementById("VK"+housName+"3")
+    let planetTextR1 = document.getElementById(kundliTypeName+housName+"1")
+    let planetTextR2 = document.getElementById(kundliTypeName+housName+"2")
+    let planetTextR3 = document.getElementById(kundliTypeName+housName+"3")
     if(planetTextR1 && planetTextR2 && planetTextR3)
     {
       planetTextR1.innerHTML = ''
@@ -220,12 +261,12 @@ console.log(this._houselist);
       }
   }
 
-  house2(housName:string,planets:string[])
+  house2(housName:string,planets:string[],kundliTypeName:string)
   {
     var count =1;
-    let planetTextR1 = document.getElementById("LK"+housName+"1")
-    let planetTextR2 = document.getElementById("LK"+housName+"2")
-    let planetTextR3 = document.getElementById("LK"+housName+"3")
+    let planetTextR1 = document.getElementById(kundliTypeName+housName+"1")
+    let planetTextR2 = document.getElementById(kundliTypeName+housName+"2")
+    let planetTextR3 = document.getElementById(kundliTypeName+housName+"3")
     if(planetTextR1 && planetTextR2 && planetTextR3)
     {
       planetTextR1.innerHTML = ''
@@ -251,12 +292,12 @@ console.log(this._houselist);
       }
   }
 
-  house3(housName:string,planets:string[])
+  house3(housName:string,planets:string[],kundliTypeName:string)
   {
     var count =1;
-    let planetTextR1 = document.getElementById("LK"+housName+"1")
-    let planetTextR2 = document.getElementById("LK"+housName+"2")
-    let planetTextR3 = document.getElementById("LK"+housName+"3")
+    let planetTextR1 = document.getElementById(kundliTypeName+housName+"1")
+    let planetTextR2 = document.getElementById(kundliTypeName+housName+"2")
+    let planetTextR3 = document.getElementById(kundliTypeName+housName+"3")
     if(planetTextR1 && planetTextR2 && planetTextR3)
     {
       planetTextR1.innerHTML = ''
@@ -289,12 +330,12 @@ console.log(this._houselist);
       }
   }
 
-  house6(housName:string,planets:string[])
+  house6(housName:string,planets:string[],kundliTypeName:string)
   {
     var count =1;
-    let planetTextR1 = document.getElementById("LK"+housName+"1")
-    let planetTextR2 = document.getElementById("LK"+housName+"2")
-    let planetTextR3 = document.getElementById("LK"+housName+"3")
+    let planetTextR1 = document.getElementById(kundliTypeName+housName+"1")
+    let planetTextR2 = document.getElementById(kundliTypeName+housName+"2")
+    let planetTextR3 = document.getElementById(kundliTypeName+housName+"3")
     if(planetTextR1 && planetTextR2 && planetTextR3)
     {
       planetTextR1.innerHTML = ''
@@ -334,14 +375,14 @@ class house{
   name:string;
   planetList:planet[];
 }
+class kundli{
+  id: number;
+  name:string;
+  isSelected: boolean;
+}
 
-const data = [
-  { name: 'John', age: 30, group: 'A' },
-  { name: 'Mary', age: 25, group: 'B' },
-  { name: 'Mike', age: 20, group: 'A' },
-  { name: 'Jane', age: 15, group: 'C' },
-  { name: 'Peter', age: 25, group: 'B' }
-];
+
+
 
 
 

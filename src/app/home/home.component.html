@@ -312,6 +312,14 @@
             </div>
         </div>
         <div class="col-4 background-color: #f9faf8;">
+          <div class="row" >
+            <div *ngFor="let kundli of _kundliList" class="col p-1 m-1">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="{{kundli.name}}"
+                id="kundaliCheckbox{{kundli.id}}" (change)="onKundliChange()"  [(ngModel)]="kundli.isSelected"  [disabled]="!kundli.isSelected && checkedNumber == limitNumber"> {{kundli.name}}
+              </div>
+            </div>
+          </div>
            <form (ngSubmit)="onsubmit()">
             <div>
                 <!-- <div *ngFor="let house of _houselist">
