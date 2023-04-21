@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="home.css"> -->
+</head>
+<body>
+    <!-- <div class="main">
+        <div class="sub"></div>
+        <div class="line1"></div>
+        <div class="line2"></div>
+        
+        <p class="p1">AA<br>&nbsp;01</p>
+        <p class="p2">AA<br>&nbsp;02</p>
+        <p class="p3">AA<br>&nbsp;03</p>
+        <p class="p4">AA<br>&nbsp;04</p>
+        <p class="p5">AA<br>&nbsp;05</p>
+        <p class="p6">AA<br>&nbsp;06</p>
+        <p class="p7">AA<br>&nbsp;07</p>
+        <p class="p8">AA<br>&nbsp;08</p>
+        <p class="p9">AA<br>&nbsp;09</p>
+        <p class="p10">AA<br>&nbsp;10</p>
+        <p class="p11">AA<br>&nbsp;11</p>
+        <p class="p12">AA<br>&nbsp;12</p>
+    </div> -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+    </nav>
+    <div class="row"  style="background-color: #eea;">
+        <div class="col-8 bg-primary">
+            <div class="row"  style="background-color: #f9faf8;">
+            <div class="col-6 p-0 m-0">
+            <svg
+              style=" outline: 1px solid rgb(6, 1, 1);"
+              viewBox="0 0 500 300"
+              >
+              <!-- house 1 -->
+              <polygon
+              points="250 50,150 100,250 150,350 100"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house1"
+              />
+              <text id="box1" x="250" y="145" text-anchor="middle" fill="black" font-size="15">1</text>
+
+              <text id="LK11" x="215" y="85" fill="black" font-size="15"></text>
+              <text id="LK12" x="215" y="105" fill="black" font-size="15"></text>
+              <text id="LK13" x="215" y="125" fill="black" font-size="15"></text>
+              <polygon
+              style="fill: none; stroke: black; stroke-width: 1"
+              points="50 50, 150 100,250 50"
+              id="house2"
+              />
+              <text id="box1" x="150" y="96" text-anchor="middle" fill="black" font-size="15">2</text>
+              <text id="LK21" x="145" y="65"  text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="LK22" x="145" y="80" text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="LK23" x="145" y="105" text-anchor="middle" fill="black" font-size="15"></text>
+              <polygon
+              points="50 150,150 100,50 50"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house3"
+              />
+              <text id="box1" x="132" y="105" text-anchor="middle" fill="black" font-size="15">3</text>
+              <text id="LK31" x="52" y="85"   fill="black" font-size="15"></text>
+              <text id="LK32" x="52" y="100"  fill="black" font-size="15"></text>
+              <text id="LK33" x="52" y="115"  fill="black" font-size="15"></text>
+              <!-- house 4 -->
+              <polygon
+              points="150 100,50 150,150 200,250 150"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house4"
+              />
+              <text id="box1" x="232" y="155" text-anchor="middle" fill="black" font-size="15">4</text>
+              <text id="LK41" x="120" y="140" fill="black" font-size="15"></text>
+              <text id="LK42" x="120" y="160" fill="black" font-size="15"></text>
+              <text id="LK43" x="120" y="180" fill="black" font-size="15"></text>
+              <!--house 5  -->
+              <polygon
+              points="50 150,150 200,50 250"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house5"
+              />
+              <text id="box1" x="132" y="205" text-anchor="middle" fill="black" font-size="15">5</text>
+              <text id="LK51" x="52" y="190"   fill="black" font-size="15"></text>
+              <text id="LK52" x="52" y="205"  fill="black" font-size="15"></text>
+              <text id="LK53" x="52" y="220"  fill="black" font-size="15"></text>
+              <!-- house 6 -->
+              <polygon
+              points="50 250,150 200,250 250"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house6"
+              />
+              <text id="box1" x="150" y="215" text-anchor="middle" fill="black" font-size="15">6</text>
+              <text id="LK61" x="145" y="230"  text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="LK62" x="145" y="245" text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="LK63" x="145" y="260" text-anchor="middle" fill="black" font-size="15"></text>
+              <!-- house 7 -->
+              <polygon
+              points="250 150,150 200,250 250,350 200"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house7"
+              />
+              <text id="box1" x="250" y="165" text-anchor="middle" fill="black" font-size="15">7</text>
+              <text id="LK71" x="215" y="185" fill="black" font-size="15"></text>
+              <text id="LK72" x="215" y="205" fill="black" font-size="15"></text>
+              <text id="LK73" x="215" y="225" fill="black" font-size="15"></text>
+              <!-- house 8 -->
+              <polygon
+              points="250 250,350 200,450 250"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house8"
+              />
+              <text id="box1" x="350" y="215" text-anchor="middle" fill="black" font-size="15">8</text>
+              <text id="LK81" x="350" y="230"  text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="LK82" x="350" y="245" text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="LK83" x="350" y="260" text-anchor="middle" fill="black" font-size="15"></text>
+              <!-- house 9 -->
+              <polygon
+              points="450 150,350 200,450 250"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house9"
+              />
+              <text id="box1" x="370" y="205" text-anchor="middle" fill="black" font-size="15">9</text>
+              <text id="LK91" x="445" y="190" text-anchor="end"  fill="black" font-size="15"></text>
+              <text id="LK92" x="445" y="205" text-anchor="end" fill="black" font-size="15"></text>
+              <text id="LK93" x="445" y="220" text-anchor="end" fill="black" font-size="15"></text>
+               <!-- house 10 -->
+               <polygon
+               points="350 100,450 150,350 200,250 150"
+               style="fill: none; stroke: black; stroke-width: 1"
+               id="house10"
+               />
+               <text id="box1" x="268" y="155" text-anchor="middle" fill="black" font-size="15">10</text> 
+               <text id="LK101" x="305" y="135" fill="black" font-size="15"></text>
+               <text id="LK102" x="305" y="155" fill="black" font-size="15"></text>
+               <text id="LK103" x="305" y="175" fill="black" font-size="15"></text>
+              <!--house 11  -->
+              <polygon
+              points="450 50,350 100,450 150"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house11"
+              />
+              <text id="box1" x="370" y="105" text-anchor="middle" fill="black" font-size="15">11</text>
+              <text id="LK111" x="445" y="85" text-anchor="end"  fill="black" font-size="15"></text>
+              <text id="LK112" x="445" y="100" text-anchor="end" fill="black" font-size="15"></text>
+              <text id="LK113" x="445" y="115" text-anchor="end" fill="black" font-size="15"></text>
+              <!-- house 12 -->
+              <polygon
+              points="250 50,350 100,450 50"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house12"
+              />
+              <text id="box1" x="350" y="96" text-anchor="middle" fill="black" font-size="15">12</text>
+              <text id="LK121" x="350" y="65"  text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="LK122" x="350" y="80" text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="LK123" x="350" y="105" text-anchor="middle" fill="black" font-size="15"></text>
+              </svg>
+                
+            </div>
+            <div class="col-6 p-0 m-0">
+              <svg
+              style=" outline: 1px solid rgb(6, 1, 1);"
+              viewBox="0 0 500 300"
+              >
+              <!-- house 1 -->
+              <polygon
+              points="250 50,150 100,250 150,350 100"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house1"
+              />
+              <text id="box1" x="250" y="145" text-anchor="middle" fill="black" font-size="15">1</text>
+
+              <text id="VK11" x="215" y="85" fill="black" font-size="15"></text>
+              <text id="VK12" x="215" y="105" fill="black" font-size="15"></text>
+              <text id="VK13" x="215" y="125" fill="black" font-size="15"></text>
+              <polygon
+              style="fill: none; stroke: black; stroke-width: 1"
+              points="50 50, 150 100,250 50"
+              id="house2"
+              />
+              <text id="box1" x="150" y="96" text-anchor="middle" fill="black" font-size="15">2</text>
+              <text id="VK21" x="145" y="65"  text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="VK22" x="145" y="80" text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="VK23" x="145" y="105" text-anchor="middle" fill="black" font-size="15"></text>
+              <polygon
+              points="50 150,150 100,50 50"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house3"
+              />
+              <text id="box1" x="132" y="105" text-anchor="middle" fill="black" font-size="15">3</text>
+              <text id="VK31" x="52" y="85"   fill="black" font-size="15"></text>
+              <text id="VK32" x="52" y="100"  fill="black" font-size="15"></text>
+              <text id="VK33" x="52" y="115"  fill="black" font-size="15"></text>
+              <!-- house 4 -->
+              <polygon
+              points="150 100,50 150,150 200,250 150"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house4"
+              />
+              <text id="box1" x="232" y="155" text-anchor="middle" fill="black" font-size="15">4</text>
+              <text id="VK41" x="120" y="140" fill="black" font-size="15"></text>
+              <text id="VK42" x="120" y="160" fill="black" font-size="15"></text>
+              <text id="VK43" x="120" y="180" fill="black" font-size="15"></text>
+              <!--house 5  -->
+              <polygon
+              points="50 150,150 200,50 250"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house5"
+              />
+              <text id="box1" x="132" y="205" text-anchor="middle" fill="black" font-size="15">5</text>
+              <text id="VK51" x="52" y="190"   fill="black" font-size="15"></text>
+              <text id="VK52" x="52" y="205"  fill="black" font-size="15"></text>
+              <text id="VK53" x="52" y="220"  fill="black" font-size="15"></text>
+              <!-- house 6 -->
+              <polygon
+              points="50 250,150 200,250 250"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house6"
+              />
+              <text id="box1" x="150" y="215" text-anchor="middle" fill="black" font-size="15">6</text>
+              <text id="VK61" x="145" y="230"  text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="VK62" x="145" y="245" text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="VK63" x="145" y="260" text-anchor="middle" fill="black" font-size="15"></text>
+              <!-- house 7 -->
+              <polygon
+              points="250 150,150 200,250 250,350 200"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house7"
+              />
+              <text id="box1" x="250" y="165" text-anchor="middle" fill="black" font-size="15">7</text>
+              <text id="VK71" x="215" y="185" fill="black" font-size="15"></text>
+              <text id="VK72" x="215" y="205" fill="black" font-size="15"></text>
+              <text id="VK73" x="215" y="225" fill="black" font-size="15"></text>
+              <!-- house 8 -->
+              <polygon
+              points="250 250,350 200,450 250"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house8"
+              />
+              <text id="box1" x="350" y="215" text-anchor="middle" fill="black" font-size="15">8</text>
+              <text id="VK81" x="350" y="230"  text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="VK82" x="350" y="245" text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="VK83" x="350" y="260" text-anchor="middle" fill="black" font-size="15"></text>
+              <!-- house 9 -->
+              <polygon
+              points="450 150,350 200,450 250"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house9"
+              />
+              <text id="box1" x="370" y="205" text-anchor="middle" fill="black" font-size="15">9</text>
+              <text id="VK91" x="445" y="190" text-anchor="end"  fill="black" font-size="15"></text>
+              <text id="VK92" x="445" y="205" text-anchor="end" fill="black" font-size="15"></text>
+              <text id="VK93" x="445" y="220" text-anchor="end" fill="black" font-size="15"></text>
+               <!-- house 10 -->
+               <polygon
+               points="350 100,450 150,350 200,250 150"
+               style="fill: none; stroke: black; stroke-width: 1"
+               id="house10"
+               />
+               <text id="box1" x="268" y="155" text-anchor="middle" fill="black" font-size="15">10</text> 
+               <text id="VK101" x="305" y="135" fill="black" font-size="15"></text>
+               <text id="VK102" x="305" y="155" fill="black" font-size="15"></text>
+               <text id="VK103" x="305" y="175" fill="black" font-size="15"></text>
+              <!--house 11  -->
+              <polygon
+              points="450 50,350 100,450 150"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house11"
+              />
+              <text id="box1" x="370" y="105" text-anchor="middle" fill="black" font-size="15">11</text>
+              <text id="VK111" x="445" y="85" text-anchor="end"  fill="black" font-size="15"></text>
+              <text id="VK112" x="445" y="100" text-anchor="end" fill="black" font-size="15"></text>
+              <text id="VK113" x="445" y="115" text-anchor="end" fill="black" font-size="15"></text>
+              <!-- house 12 -->
+              <polygon
+              points="250 50,350 100,450 50"
+              style="fill: none; stroke: black; stroke-width: 1"
+              id="house12"
+              />
+              <text id="box1" x="350" y="96" text-anchor="middle" fill="black" font-size="15">12</text>
+              <text id="VK121" x="350" y="65"  text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="VK122" x="350" y="80" text-anchor="middle" fill="black" font-size="15"></text>
+              <text id="VK123" x="350" y="105" text-anchor="middle" fill="black" font-size="15"></text>
+              </svg>
+              </div>
+            </div>
+            <div class="row"  style="background-color: #eee;">
+            <div class="col-6 bg-primary">
+            <div class="main">
+                <div class="sub"></div>
+                <div class="line1"></div>
+                <div class="line2"></div>
+                
+                <p class="p1">AA<br>&nbsp;01</p>
+                <p class="p2">AA<br>&nbsp;02</p>
+                <p class="p3">AA<br>&nbsp;03</p>
+                <p class="p4">AA<br>&nbsp;04</p>
+                <p class="p5">AA<br>&nbsp;05</p>
+                <p class="p6">AA<br>&nbsp;06</p>
+                <p class="p7">AA<br>&nbsp;07</p>
+                <p class="p8">AA<br>&nbsp;08</p>
+                <p class="p9">AA<br>&nbsp;09</p>
+                <p class="p10">AA<br>&nbsp;10</p>
+                <p class="p11">AA<br>&nbsp;11</p>
+                <p class="p12">AA<br>&nbsp;12</p>
+            </div>
+            </div>
+            <div class="col-6 bg-primary">
+                </div>
+            </div>
+        </div>
+        <div class="col-4 background-color: #f9faf8;">
+           <form (ngSubmit)="onsubmit()">
+            <div>
+                <!-- <div *ngFor="let house of _houselist">
+                    <div *ngFor="let planet of house.planetList">
+                        <div class="form-check"><input type="checkbox" class="form-check-input" name="{{planet.name}}" (change)="onchange()" [(ngModel)]="planet.isselected"></div>
+                        <div><label class="form-check-label">{{planet.name}}</label></div>
+                    </div>
+                </div> -->
+
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th *ngFor="let planet of getplanets()" scope="col">{{planet.name}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let house of _houselist">
+                        <th scope="row">{{house.name}}</th>
+                        <td *ngFor="let planet of house.planetList"><div class="form-check"><input type="checkbox" class="form-check-input" name="{{planet.name}}" (change)="onchange()" [(ngModel)]="planet.isselected"></div></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <div>
+                    <input type="submit" class="btn btn-primary" value="submit">
+                </div>
+            </div>
+           </form>
+         </div>
+      </div>
+
+
+
+
+

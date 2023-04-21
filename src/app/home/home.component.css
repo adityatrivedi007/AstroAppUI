@@ -1,0 +1,101 @@
+
+.main {
+    height: 250px;
+    width: 250px;
+    border: 3px solid #000;
+    margin: 100px auto;
+    float: none;
+    overflow: hidden;
+}
+
+.sub {
+    height: 175px;
+    width: 175px;
+    border: 3px solid #000;
+    transform: rotate(45deg);
+    margin-left: 37px;
+    margin-top: 37px;
+}
+
+.line1 {
+    height: 10px;
+    width: 360px;
+    border-bottom: 3px solid #000;
+    transform: rotate(135deg);
+    margin-top: -85px;
+    margin-left: -60px;
+}
+
+.line2 {
+    height: 10px;
+    width: 380px;
+    border-top: 3px solid #000;
+    transform: rotate(-135deg);
+    margin-left: -53px;
+    margin-top: -10px;  
+}
+p{
+    margin: 0;
+}
+.p1{
+    margin-top: -130px;
+    margin-left: 50px;
+}
+.p2{
+    margin-top: -35px;
+    margin-left: 180px;
+}
+.p3{
+    margin-left: 10px;
+}
+.p4{
+    margin-top: -35px;
+    margin-left: 110px;
+}
+.p5{
+    margin-top: -35px;
+    margin-left: 215px;
+}
+.p6{
+    margin-top: 20px;
+    margin-left: 45px;
+}
+.p7{
+    margin-top: -35px;
+    margin-left: 170px;
+}
+.p8{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.p9{
+    margin-top: -35px;
+    margin-left: 110px;
+}
+.p10{
+    margin-top: -35px;
+    margin-left: 215px;
+}
+.p11{
+    margin-top: 5px;
+    margin-left: 50px;
+}
+.p12{
+    margin-top: -35px;
+    margin-left: 180px;
+}
+.h-50 {
+    height: 50%;
+}
+
+.h-30 {
+    height: 30%;
+}
+
+textarea{
+    width: 100%;
+    /* background: transparent; */
+    border: none;
+    outline: none;
+}
+
