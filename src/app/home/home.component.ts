@@ -139,6 +139,30 @@ console.log(this._houselist);
     }
     console.log("Hii"+this.checkedNumber)
   }
+
+  printThisPage()
+  {
+    // var printContent = document.getElementById("printSection");
+    // var originalContent = document.body.innerHTML;
+    // if(printContent)
+    // {
+    // document.body.innerHTML = printContent.innerHTML;
+    // window.print();
+    // document.body.innerHTML = originalContent;
+    // }
+
+    var prtContent = document.getElementById("printSection");
+    var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+    if(WinPrint && prtContent)
+    {
+    WinPrint.document.write(prtContent.innerHTML);
+    WinPrint.document.close();
+    WinPrint.focus();
+    WinPrint.print();
+    WinPrint.close();
+    }
+  }
+
   onchange()
   {
 
