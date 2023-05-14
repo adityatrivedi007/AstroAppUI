@@ -126,7 +126,7 @@ console.log(this._houselist);
   
   checkedNumber: number =0;
   limitNumber: number = 1;
-  onKundliChange()
+  onKundliChange(ev: any)
   {
     this.kundliType = this._kundliList.filter(x=>x.isSelected==true).map(x=>x.id).toString();
     if(this.kundliType.length>0)
@@ -136,9 +136,12 @@ console.log(this._houselist);
     else
     {
       this.checkedNumber--
+      this._houselist.forEach(x => x.planetList.forEach(y=>y.isselected = false
+      ))
     }
-    console.log("Hii"+this.checkedNumber)
   }
+
+
 
   printThisPage()
   {

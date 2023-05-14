@@ -30,12 +30,13 @@
     <div class="row">
         <div class="col-8 "  id="printSection">
             <div class="row"  style="background-color: #f9faf8;">
-            <div class="col-6 p-0 m-0">
+            <div class="col-6 p-3 m-0">
             <svg
-              style=" outline: 1px solid rgb(6, 1, 1);"
+              style=" outline: 1px solid rgb(6, 0, 0);"
               viewBox="0 0 500 300"
               >
               <!-- house 1 -->
+              <text x="240" y="28" text-anchor="middle" fill="black" font-size="25">Lagna Kundli</text>
               <polygon
               points="250 50,150 100,250 150,350 100"
               style="fill: none; stroke: black; stroke-width: 1"
@@ -157,11 +158,12 @@
               </svg>
                 
             </div>
-            <div class="col-6 p-0 m-0">
+            <div class="col-6 p-3 m-0">
               <svg
               style=" outline: 1px solid rgb(6, 1, 1);"
               viewBox="0 0 500 300"
               >
+              <text x="240" y="28" text-anchor="middle" fill="black" font-size="25">Varsha Kundli</text>
               <!-- house 1 -->
               <polygon
               points="250 50,150 100,250 150,350 100"
@@ -287,7 +289,7 @@
             <div class="row">
             <!-- <div class="col-1">
             </div> -->
-            <div class="col p-2">
+            <div class="col p-3">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -349,7 +351,7 @@
                 </table>
               
             </div>
-            <div class="col p-2">
+            <div class="col p-3">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -414,12 +416,12 @@
             </div> -->
             </div>
         </div>
-        <div class="col-4 background-color: #f9faf8;">
+        <div class="col-4 background-color: #f9faf8;" id="noPrint">
           <div class="row" >
             <div *ngFor="let kundli of _kundliList" class="col p-1 m-1">
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" name="{{kundli.name}}"
-                id="kundaliCheckbox{{kundli.id}}" (change)="onKundliChange()"  [(ngModel)]="kundli.isSelected"  [disabled]="!kundli.isSelected && checkedNumber == limitNumber"> {{kundli.name}}
+                id="kundaliCheckbox{{kundli.id}}" (change)="onKundliChange($event)"  [(ngModel)]="kundli.isSelected"  [disabled]="!kundli.isSelected && checkedNumber == limitNumber"> {{kundli.name}}
               </div>
             </div>
           </div>
@@ -442,7 +444,7 @@
                     <tbody>
                       <tr *ngFor="let house of _houselist">
                         <th scope="row">{{house.name}}</th>
-                        <td *ngFor="let planet of house.planetList"><div class="form-check"><input type="checkbox" class="form-check-input" name="{{planet.name}}" (change)="onchange()" [(ngModel)]="planet.isselected"></div></td>
+                        <td *ngFor="let planet of house.planetList"><div class="form-check"><input type="checkbox" id="checkboxes" class="form-check-input" name="{{planet.name}}" (change)="onchange()" [(ngModel)]="planet.isselected"></div></td>
                       </tr>
                     </tbody>
                   </table>
