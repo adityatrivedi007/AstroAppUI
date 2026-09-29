@@ -1,271 +1,265 @@
 <div class="min-h-screen p-6 max-w-[1600px] mx-auto">
-  <!-- Modern Header -->
+  <!-- Aesthetic Header -->
   <header
-    class="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm mb-6 border border-slate-200"
+    class="flex justify-between items-center bg-white p-5 rounded-2xl shadow-sm mb-8 border border-[#EBE6DD]"
   >
-    <h1 class="text-2xl font-bold text-indigo-900 tracking-tight">
+    <h1 class="text-2xl font-bold text-[#4A3F35] tracking-tight">
       AstroApp Dashboard
     </h1>
     <button
       (click)="printThisPage()"
-      class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg shadow transition-colors"
+      class="px-6 py-2.5 bg-[#4A3F35] hover:bg-[#362E26] text-white text-sm font-semibold rounded-xl shadow-sm transition-all duration-200"
     >
       Print Charts
     </button>
   </header>
 
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 print:block">
-    <!-- LEFT SIDEBAR: Controls & Forms (Hidden during print) -->
+  <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 print:block">
+    <!-- LEFT SIDEBAR: Modern SaaS Controls (Hidden during print) -->
     <aside
-      class="lg:col-span-4 bg-white p-6 rounded-xl shadow-sm border border-slate-200 print:hidden"
+      class="xl:col-span-5 bg-white p-6 rounded-2xl shadow-sm border border-[#EBE6DD] print:hidden"
     >
-      <!-- Chart Type Selection (Replaced checkboxes with standard Radio buttons for clarity) -->
-      <div class="mb-6 bg-slate-50 p-4 rounded-lg border border-slate-100">
+      <!-- Modern Segmented Control Toggle -->
+      <div class="mb-8">
         <h3
-          class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-3"
+          class="text-xs font-bold uppercase tracking-widest text-[#8C7A6B] mb-3"
         >
-          Select Chart to Edit
+          Active Chart
         </h3>
-        <div class="flex gap-4">
-          <label class="flex items-center gap-2 cursor-pointer">
-            <input
-              type="radio"
-              name="chartType"
-              value="1"
-              [(ngModel)]="kundliType"
-              class="w-4 h-4 text-indigo-600"
-            />
-            <span class="text-slate-700 font-medium">Lagna Kundli</span>
-          </label>
-          <label class="flex items-center gap-2 cursor-pointer">
-            <input
-              type="radio"
-              name="chartType"
-              value="2"
-              [(ngModel)]="kundliType"
-              class="w-4 h-4 text-indigo-600"
-            />
-            <span class="text-slate-700 font-medium">Varsha Kundli</span>
-          </label>
+        <div
+          class="flex p-1 space-x-1 bg-[#F9F6F0] rounded-xl border border-[#EBE6DD]"
+        >
+          <button
+            type="button"
+            (click)="switchChart('1')"
+            [class]="
+              kundliType === '1'
+                ? 'bg-white shadow-sm ring-1 ring-black/5 text-[#D97743]'
+                : 'text-[#8C7A6B] hover:text-[#4A3F35]'
+            "
+            class="w-full rounded-lg py-2.5 text-sm font-bold transition-all duration-200"
+          >
+            Lagna Kundli
+          </button>
+          <button
+            type="button"
+            (click)="switchChart('2')"
+            [class]="
+              kundliType === '2'
+                ? 'bg-white shadow-sm ring-1 ring-black/5 text-[#D97743]'
+                : 'text-[#8C7A6B] hover:text-[#4A3F35]'
+            "
+            class="w-full rounded-lg py-2.5 text-sm font-bold transition-all duration-200"
+          >
+            Varsha Kundli
+          </button>
         </div>
       </div>
 
-      <form (ngSubmit)="onsubmit()">
-        <div class="overflow-x-auto rounded-lg border border-slate-200 mb-6">
+      <!-- Modern SaaS Data Grid -->
+      <div class="rounded-xl border border-[#EBE6DD] overflow-hidden shadow-sm">
+        <div class="overflow-x-auto">
           <table class="w-full text-sm text-left">
             <thead
-              class="text-xs text-slate-500 uppercase bg-slate-50 border-b border-slate-200"
+              class="text-xs text-[#8C7A6B] uppercase bg-[#F9F6F0] border-b border-[#EBE6DD]"
             >
               <tr>
-                <th class="px-3 py-3 font-semibold text-center">House</th>
+                <th class="px-3 py-4 font-bold text-center tracking-wider">
+                  House
+                </th>
                 <th
                   *ngFor="let p of _houselist[0].planetList"
-                  class="px-2 py-3 font-semibold text-center"
+                  class="px-2 py-4 font-bold text-center tracking-wider"
                 >
                   {{ p.name }}
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="divide-y divide-[#EBE6DD]">
               <tr
                 *ngFor="let house of _houselist"
-                class="border-b border-slate-100 last:border-0 hover:bg-slate-50"
+                class="hover:bg-[#FDFBF7] transition-colors group"
               >
                 <td
-                  class="px-3 py-2 font-bold text-slate-700 text-center bg-slate-50"
+                  class="px-3 py-2.5 font-bold text-[#4A3F35] text-center bg-[#F9F6F0]/50 group-hover:bg-transparent transition-colors border-r border-[#EBE6DD]/50"
                 >
                   {{ house.name }}
                 </td>
                 <td
                   *ngFor="let planet of house.planetList"
-                  class="px-2 py-2 text-center"
+                  class="px-2 py-2.5 text-center"
                 >
-                  <input
-                    type="checkbox"
-                    [(ngModel)]="planet.isselected"
-                    name="h{{ house.id }}p{{ planet.id }}"
-                    class="w-4 h-4 text-indigo-600 rounded border-slate-300"
-                  />
+                  <div class="flex justify-center items-center h-full">
+                    <!-- Checkboxes now auto-save! -->
+                    <input
+                      type="checkbox"
+                      [(ngModel)]="planet.isselected"
+                      (change)="onPlanetChange()"
+                      class="saas-checkbox"
+                    />
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-
-        <button
-          type="submit"
-          class="w-full py-3 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-lg shadow-sm transition-colors"
-        >
-          Apply to Selected Chart
-        </button>
-      </form>
+      </div>
     </aside>
 
     <!-- RIGHT MAIN AREA: The Charts -->
-    <main class="lg:col-span-8 space-y-8" id="printSection">
-      <!-- CSS Grid for the two charts side-by-side -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <main class="xl:col-span-7 space-y-8" id="printSection">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- LAGNA KUNDLI -->
         <div
-          class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center"
+          class="bg-white p-8 rounded-2xl shadow-sm border border-[#EBE6DD] flex flex-col items-center relative overflow-hidden"
         >
+          <!-- Decorative subtle warm bloom -->
+          <div
+            class="absolute -top-20 -right-20 w-40 h-40 bg-[#D97743]/5 rounded-full blur-3xl"
+          ></div>
+
           <h2
-            class="text-lg font-bold text-slate-800 mb-6 uppercase tracking-widest"
+            class="text-lg font-bold text-[#4A3F35] mb-8 uppercase tracking-[0.2em] relative z-10"
           >
             Lagna Kundli
           </h2>
 
-          <!-- PURE CSS KUNDLI SHAPE -->
           <div
-            class="relative w-full max-w-[320px] aspect-square border-[1.5px] border-slate-800 overflow-hidden bg-orange-50/30"
+            class="relative w-full max-w-[340px] aspect-square border-[1.5px] border-[#8C7A6B] overflow-hidden bg-[#FDFBF7] z-10"
           >
-            <!-- The Cross Lines -->
             <div
-              class="absolute top-0 left-0 w-[141.4%] h-0 border-t-[1.5px] border-slate-800 origin-top-left rotate-45"
+              class="absolute top-0 left-0 w-[141.4%] h-0 border-t-[1.5px] border-[#8C7A6B] origin-top-left rotate-45"
             ></div>
             <div
-              class="absolute top-0 right-0 w-[141.4%] h-0 border-t-[1.5px] border-slate-800 origin-top-right -rotate-45"
+              class="absolute top-0 right-0 w-[141.4%] h-0 border-t-[1.5px] border-[#8C7A6B] origin-top-right -rotate-45"
             ></div>
-            <!-- The Inner Diamond -->
             <div
-              class="absolute inset-0 m-auto w-[50%] h-[50%] border-[1.5px] border-slate-800 rotate-45 bg-white/50"
+              class="absolute inset-0 m-auto w-[50%] h-[50%] border-[1.5px] border-[#8C7A6B] rotate-45 bg-white/60"
             ></div>
 
-            <!-- Absolute Positioning for Content in the 12 Houses -->
-            <!-- Using Angular Data Binding to display the array of planets cleanly -->
+            <!-- Perfected North Indian Geometry -->
             <div
-              class="absolute top-[16%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[18%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">1</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">1</span>
               <div
-                class="text-sm font-bold text-red-600 text-center leading-tight max-w-[60px]"
+                class="text-sm font-bold text-[#D97743] text-center leading-tight max-w-[60px]"
               >
                 {{ lagnaChartData[1].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[25%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[20%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">2</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">2</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[2].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[50%] left-[16%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[30%] left-[20%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">3</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">3</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[3].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[50%] left-[18%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">4</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">4</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[60px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ lagnaChartData[4].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[75%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[70%] left-[20%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">5</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">5</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[5].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[84%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[80%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">6</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">6</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[60px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ lagnaChartData[6].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[50%] left-[84%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[82%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">7</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">7</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[7].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[75%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[80%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">8</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">8</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[8].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[50%] left-[84%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[70%] left-[80%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">9</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">9</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[9].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mt-12"
+              class="absolute top-[50%] left-[82%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
                 >10</span
               >
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[60px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ lagnaChartData[10].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[25%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[30%] left-[80%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
                 >11</span
               >
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[11].join(" ") }}
               </div>
             </div>
-
             <div
-              class="absolute top-[16%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mt-12"
+              class="absolute top-[20%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
                 >12</span
               >
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[60px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ lagnaChartData[12].join(" ") }}
               </div>
@@ -273,33 +267,37 @@
           </div>
         </div>
 
-        <!-- VARSHA KUNDLI (Exact same layout, but bound to varshaChartData) -->
+        <!-- VARSHA KUNDLI -->
         <div
-          class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center"
+          class="bg-white p-8 rounded-2xl shadow-sm border border-[#EBE6DD] flex flex-col items-center relative overflow-hidden"
         >
+          <div
+            class="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/5 rounded-full blur-3xl"
+          ></div>
+
           <h2
-            class="text-lg font-bold text-slate-800 mb-6 uppercase tracking-widest"
+            class="text-lg font-bold text-[#4A3F35] mb-8 uppercase tracking-[0.2em] relative z-10"
           >
             Varsha Kundli
           </h2>
 
           <div
-            class="relative w-full max-w-[320px] aspect-square border-[1.5px] border-slate-800 overflow-hidden bg-blue-50/30"
+            class="relative w-full max-w-[340px] aspect-square border-[1.5px] border-[#8C7A6B] overflow-hidden bg-[#FDFBF7] z-10"
           >
             <div
-              class="absolute top-0 left-0 w-[141.4%] h-0 border-t-[1.5px] border-slate-800 origin-top-left rotate-45"
+              class="absolute top-0 left-0 w-[141.4%] h-0 border-t-[1.5px] border-[#8C7A6B] origin-top-left rotate-45"
             ></div>
             <div
-              class="absolute top-0 right-0 w-[141.4%] h-0 border-t-[1.5px] border-slate-800 origin-top-right -rotate-45"
+              class="absolute top-0 right-0 w-[141.4%] h-0 border-t-[1.5px] border-[#8C7A6B] origin-top-right -rotate-45"
             ></div>
             <div
-              class="absolute inset-0 m-auto w-[50%] h-[50%] border-[1.5px] border-slate-800 rotate-45 bg-white/50"
+              class="absolute inset-0 m-auto w-[50%] h-[50%] border-[1.5px] border-[#8C7A6B] rotate-45 bg-white/60"
             ></div>
 
             <div
-              class="absolute top-[16%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[18%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">1</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">1</span>
               <div
                 class="text-sm font-bold text-blue-600 text-center leading-tight max-w-[60px]"
               >
@@ -307,117 +305,117 @@
               </div>
             </div>
             <div
-              class="absolute top-[25%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[20%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">2</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">2</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[2].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[50%] left-[16%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[30%] left-[20%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">3</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">3</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[3].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[50%] left-[18%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">4</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">4</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[60px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ varshaChartData[4].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[75%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[70%] left-[20%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">5</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">5</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[5].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[84%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[80%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">6</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">6</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[60px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ varshaChartData[6].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[50%] left-[84%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[82%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">7</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">7</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[7].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[75%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[80%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">8</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">8</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[8].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[50%] left-[84%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[70%] left-[80%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5">9</span>
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">9</span>
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[9].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mt-12"
+              class="absolute top-[50%] left-[82%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
                 >10</span
               >
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[60px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ varshaChartData[10].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[25%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[30%] left-[80%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
                 >11</span
               >
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[50px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[11].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[16%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mt-12"
+              class="absolute top-[20%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-slate-400 font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
                 >12</span
               >
               <div
-                class="text-sm font-bold text-slate-800 text-center leading-tight max-w-[60px]"
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ varshaChartData[12].join(" ") }}
               </div>

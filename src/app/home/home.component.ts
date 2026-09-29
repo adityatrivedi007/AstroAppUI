@@ -19,15 +19,13 @@ export interface House {
 })
 export class HomeComponent implements OnInit {
   _houselist: House[] = [];
-  kundliType: string = '1'; // Default to Lagna (1)
+  kundliType: string = '1';
 
-  // Store the results for our two modern charts
   lagnaChartData: Record<number, string[]> = {};
   varshaChartData: Record<number, string[]> = {};
 
   ngOnInit() {
     this.getHouses();
-    // Initialize empty arrays for all 12 houses
     for (let i = 1; i <= 12; i++) {
       this.lagnaChartData[i] = [];
       this.varshaChartData[i] = [];
@@ -56,18 +54,28 @@ export class HomeComponent implements OnInit {
     }));
   }
 
-  onsubmit() {
-    // Determine which chart we are actively saving to
+  // Auto-Save: Fires instantly whenever a checkbox is clicked
+  onPlanetChange() {
+    const targetChart =
+      this.kundliType === '1' ? this.lagnaChartData : this.varshaChartData;
+    this._houselist.forEach((house) => {
+      targetChart[house.id] = house.planetList
+        .filter((planet) => planet.isselected)
+        .map((planet) => planet.name);
+    });
+  }
+
+  // State Switcher: Repopulates the grid visually when changing tabs
+  switchChart(type: string) {
+    this.kundliType = type;
     const targetChart =
       this.kundliType === '1' ? this.lagnaChartData : this.varshaChartData;
 
     this._houselist.forEach((house) => {
-      // Find all selected planets for this house
-      const selectedPlanets = house.planetList
-        .filter((planet) => planet.isselected)
-        .map((planet) => planet.name);
-
-      targetChart[house.id] = selectedPlanets;
+      const savedPlanets = targetChart[house.id] || [];
+      house.planetList.forEach((planet) => {
+        planet.isselected = savedPlanets.includes(planet.name);
+      });
     });
   }
 
