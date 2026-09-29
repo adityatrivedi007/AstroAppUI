@@ -1,457 +1,531 @@
-<!DOCTYPE html>
-<html>
-<head>
-   
-</head>
-<body>
-    <!-- <div class="main">
-        <div class="sub"></div>
-        <div class="line1"></div>
-        <div class="line2"></div>
-        
-        <p class="p1">AA<br>&nbsp;01</p>
-        <p class="p2">AA<br>&nbsp;02</p>
-        <p class="p3">AA<br>&nbsp;03</p>
-        <p class="p4">AA<br>&nbsp;04</p>
-        <p class="p5">AA<br>&nbsp;05</p>
-        <p class="p6">AA<br>&nbsp;06</p>
-        <p class="p7">AA<br>&nbsp;07</p>
-        <p class="p8">AA<br>&nbsp;08</p>
-        <p class="p9">AA<br>&nbsp;09</p>
-        <p class="p10">AA<br>&nbsp;10</p>
-        <p class="p11">AA<br>&nbsp;11</p>
-        <p class="p12">AA<br>&nbsp;12</p>
-    </div> -->
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">AstroApp</a>
-        <!-- <button styleSheetFile="app/app.component.html" printSectionId="printSection" ngxPrint>Print</button> -->
-        <button printSectionId="printSection" onclick=window.print()>Print</button>
-    </nav>
-    <div class="row">
-        <div class="col-8 "  id="printSection">
-            <div class="row"  style="background-color: #f9faf8;">
-            <div class="col-6 p-3 m-0">
-            <svg
-              style=" outline: 1px solid rgb(6, 0, 0);"
-              viewBox="0 0 500 300"
-              >
-              <!-- house 1 -->
-              <text x="240" y="28" text-anchor="middle" fill="black" font-size="25">Lagna Kundli</text>
-              <polygon
-              points="250 50,150 100,250 150,350 100"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house1"
-              />
-              <text id="box1" x="250" y="145" text-anchor="middle" fill="black" font-size="15">1</text>
+<div
+  class="min-h-screen p-6 print:p-0 max-w-[1600px] mx-auto relative print:bg-white"
+>
+  <!-- Header (Hidden during print so it doesn't waste paper space) -->
+  <header
+    class="flex justify-between items-center bg-white p-5 rounded-2xl shadow-sm mb-8 border border-[#EBE6DD] print:hidden"
+  >
+    <h1 class="text-2xl font-bold text-[#4A3F35] tracking-tight">
+      AstroApp Dashboard
+    </h1>
+    <button
+      (click)="printThisPage()"
+      class="px-6 py-2.5 bg-[#4A3F35] hover:bg-[#362E26] text-white text-sm font-semibold rounded-xl shadow-sm transition-all duration-200"
+    >
+      Print Charts
+    </button>
+  </header>
 
-              <text id="LK11" x="215" y="85" fill="black" font-size="15"></text>
-              <text id="LK12" x="215" y="105" fill="black" font-size="15"></text>
-              <text id="LK13" x="215" y="125" fill="black" font-size="15"></text>
-              <polygon
-              style="fill: none; stroke: black; stroke-width: 1"
-              points="50 50, 150 100,250 50"
-              id="house2"
-              />
-              <text id="box1" x="150" y="96" text-anchor="middle" fill="black" font-size="15">2</text>
-              <text id="LK21" x="145" y="65"  text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="LK22" x="145" y="80" text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="LK23" x="145" y="105" text-anchor="middle" fill="black" font-size="15"></text>
-              <polygon
-              points="50 150,150 100,50 50"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house3"
-              />
-              <text id="box1" x="132" y="105" text-anchor="middle" fill="black" font-size="15">3</text>
-              <text id="LK31" x="52" y="85"   fill="black" font-size="15"></text>
-              <text id="LK32" x="52" y="100"  fill="black" font-size="15"></text>
-              <text id="LK33" x="52" y="115"  fill="black" font-size="15"></text>
-              <!-- house 4 -->
-              <polygon
-              points="150 100,50 150,150 200,250 150"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house4"
-              />
-              <text id="box1" x="232" y="155" text-anchor="middle" fill="black" font-size="15">4</text>
-              <text id="LK41" x="120" y="140" fill="black" font-size="15"></text>
-              <text id="LK42" x="120" y="160" fill="black" font-size="15"></text>
-              <text id="LK43" x="120" y="180" fill="black" font-size="15"></text>
-              <!--house 5  -->
-              <polygon
-              points="50 150,150 200,50 250"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house5"
-              />
-              <text id="box1" x="132" y="205" text-anchor="middle" fill="black" font-size="15">5</text>
-              <text id="LK51" x="52" y="190"   fill="black" font-size="15"></text>
-              <text id="LK52" x="52" y="205"  fill="black" font-size="15"></text>
-              <text id="LK53" x="52" y="220"  fill="black" font-size="15"></text>
-              <!-- house 6 -->
-              <polygon
-              points="50 250,150 200,250 250"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house6"
-              />
-              <text id="box1" x="150" y="215" text-anchor="middle" fill="black" font-size="15">6</text>
-              <text id="LK61" x="145" y="230"  text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="LK62" x="145" y="245" text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="LK63" x="145" y="260" text-anchor="middle" fill="black" font-size="15"></text>
-              <!-- house 7 -->
-              <polygon
-              points="250 150,150 200,250 250,350 200"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house7"
-              />
-              <text id="box1" x="250" y="165" text-anchor="middle" fill="black" font-size="15">7</text>
-              <text id="LK71" x="215" y="185" fill="black" font-size="15"></text>
-              <text id="LK72" x="215" y="205" fill="black" font-size="15"></text>
-              <text id="LK73" x="215" y="225" fill="black" font-size="15"></text>
-              <!-- house 8 -->
-              <polygon
-              points="250 250,350 200,450 250"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house8"
-              />
-              <text id="box1" x="350" y="215" text-anchor="middle" fill="black" font-size="15">8</text>
-              <text id="LK81" x="350" y="230"  text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="LK82" x="350" y="245" text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="LK83" x="350" y="260" text-anchor="middle" fill="black" font-size="15"></text>
-              <!-- house 9 -->
-              <polygon
-              points="450 150,350 200,450 250"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house9"
-              />
-              <text id="box1" x="370" y="205" text-anchor="middle" fill="black" font-size="15">9</text>
-              <text id="LK91" x="445" y="190" text-anchor="end"  fill="black" font-size="15"></text>
-              <text id="LK92" x="445" y="205" text-anchor="end" fill="black" font-size="15"></text>
-              <text id="LK93" x="445" y="220" text-anchor="end" fill="black" font-size="15"></text>
-               <!-- house 10 -->
-               <polygon
-               points="350 100,450 150,350 200,250 150"
-               style="fill: none; stroke: black; stroke-width: 1"
-               id="house10"
-               />
-               <text id="box1" x="268" y="155" text-anchor="middle" fill="black" font-size="15">10</text> 
-               <text id="LK101" x="305" y="135" fill="black" font-size="15"></text>
-               <text id="LK102" x="305" y="155" fill="black" font-size="15"></text>
-               <text id="LK103" x="305" y="175" fill="black" font-size="15"></text>
-              <!--house 11  -->
-              <polygon
-              points="450 50,350 100,450 150"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house11"
-              />
-              <text id="box1" x="370" y="105" text-anchor="middle" fill="black" font-size="15">11</text>
-              <text id="LK111" x="445" y="85" text-anchor="end"  fill="black" font-size="15"></text>
-              <text id="LK112" x="445" y="100" text-anchor="end" fill="black" font-size="15"></text>
-              <text id="LK113" x="445" y="115" text-anchor="end" fill="black" font-size="15"></text>
-              <!-- house 12 -->
-              <polygon
-              points="250 50,350 100,450 50"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house12"
-              />
-              <text id="box1" x="350" y="96" text-anchor="middle" fill="black" font-size="15">12</text>
-              <text id="LK121" x="350" y="65"  text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="LK122" x="350" y="80" text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="LK123" x="350" y="105" text-anchor="middle" fill="black" font-size="15"></text>
-              </svg>
-                
-            </div>
-            <div class="col-6 p-3 m-0">
-              <svg
-              style=" outline: 1px solid rgb(6, 1, 1);"
-              viewBox="0 0 500 300"
-              >
-              <text x="240" y="28" text-anchor="middle" fill="black" font-size="25">Varsha Kundli</text>
-              <!-- house 1 -->
-              <polygon
-              points="250 50,150 100,250 150,350 100"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house1"
-              />
-              <text id="box1" x="250" y="145" text-anchor="middle" fill="black" font-size="15">1</text>
+  <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 print:block">
+    <!-- LEFT SIDEBAR: Hidden during print -->
+    <aside
+      class="xl:col-span-5 bg-white p-6 rounded-2xl shadow-sm border border-[#EBE6DD] print:hidden"
+    >
+      <div class="mb-6 flex justify-between items-end">
+        <div class="w-full">
+          <h3
+            class="text-xs font-bold uppercase tracking-widest text-[#8C7A6B] mb-3"
+          >
+            Active Chart
+          </h3>
+          <div
+            class="flex p-1 space-x-1 bg-[#F9F6F0] rounded-xl border border-[#EBE6DD]"
+          >
+            <button
+              type="button"
+              (click)="switchChart('1')"
+              [class]="
+                kundliType === '1'
+                  ? 'bg-white shadow-sm ring-1 ring-black/5 text-[#D97743]'
+                  : 'text-[#8C7A6B] hover:text-[#4A3F35]'
+              "
+              class="w-full rounded-lg py-2.5 text-sm font-bold transition-all duration-200"
+            >
+              Lagna Kundli
+            </button>
+            <button
+              type="button"
+              (click)="switchChart('2')"
+              [class]="
+                kundliType === '2'
+                  ? 'bg-white shadow-sm ring-1 ring-black/5 text-[#D97743]'
+                  : 'text-[#8C7A6B] hover:text-[#4A3F35]'
+              "
+              class="w-full rounded-lg py-2.5 text-sm font-bold transition-all duration-200"
+            >
+              Varsha Kundli
+            </button>
+          </div>
+        </div>
+      </div>
 
-              <text id="VK11" x="215" y="85" fill="black" font-size="15"></text>
-              <text id="VK12" x="215" y="105" fill="black" font-size="15"></text>
-              <text id="VK13" x="215" y="125" fill="black" font-size="15"></text>
-              <polygon
-              style="fill: none; stroke: black; stroke-width: 1"
-              points="50 50, 150 100,250 50"
-              id="house2"
-              />
-              <text id="box1" x="150" y="96" text-anchor="middle" fill="black" font-size="15">2</text>
-              <text id="VK21" x="145" y="65"  text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="VK22" x="145" y="80" text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="VK23" x="145" y="105" text-anchor="middle" fill="black" font-size="15"></text>
-              <polygon
-              points="50 150,150 100,50 50"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house3"
-              />
-              <text id="box1" x="132" y="105" text-anchor="middle" fill="black" font-size="15">3</text>
-              <text id="VK31" x="52" y="85"   fill="black" font-size="15"></text>
-              <text id="VK32" x="52" y="100"  fill="black" font-size="15"></text>
-              <text id="VK33" x="52" y="115"  fill="black" font-size="15"></text>
-              <!-- house 4 -->
-              <polygon
-              points="150 100,50 150,150 200,250 150"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house4"
-              />
-              <text id="box1" x="232" y="155" text-anchor="middle" fill="black" font-size="15">4</text>
-              <text id="VK41" x="120" y="140" fill="black" font-size="15"></text>
-              <text id="VK42" x="120" y="160" fill="black" font-size="15"></text>
-              <text id="VK43" x="120" y="180" fill="black" font-size="15"></text>
-              <!--house 5  -->
-              <polygon
-              points="50 150,150 200,50 250"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house5"
-              />
-              <text id="box1" x="132" y="205" text-anchor="middle" fill="black" font-size="15">5</text>
-              <text id="VK51" x="52" y="190"   fill="black" font-size="15"></text>
-              <text id="VK52" x="52" y="205"  fill="black" font-size="15"></text>
-              <text id="VK53" x="52" y="220"  fill="black" font-size="15"></text>
-              <!-- house 6 -->
-              <polygon
-              points="50 250,150 200,250 250"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house6"
-              />
-              <text id="box1" x="150" y="215" text-anchor="middle" fill="black" font-size="15">6</text>
-              <text id="VK61" x="145" y="230"  text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="VK62" x="145" y="245" text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="VK63" x="145" y="260" text-anchor="middle" fill="black" font-size="15"></text>
-              <!-- house 7 -->
-              <polygon
-              points="250 150,150 200,250 250,350 200"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house7"
-              />
-              <text id="box1" x="250" y="165" text-anchor="middle" fill="black" font-size="15">7</text>
-              <text id="VK71" x="215" y="185" fill="black" font-size="15"></text>
-              <text id="VK72" x="215" y="205" fill="black" font-size="15"></text>
-              <text id="VK73" x="215" y="225" fill="black" font-size="15"></text>
-              <!-- house 8 -->
-              <polygon
-              points="250 250,350 200,450 250"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house8"
-              />
-              <text id="box1" x="350" y="215" text-anchor="middle" fill="black" font-size="15">8</text>
-              <text id="VK81" x="350" y="230"  text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="VK82" x="350" y="245" text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="VK83" x="350" y="260" text-anchor="middle" fill="black" font-size="15"></text>
-              <!-- house 9 -->
-              <polygon
-              points="450 150,350 200,450 250"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house9"
-              />
-              <text id="box1" x="370" y="205" text-anchor="middle" fill="black" font-size="15">9</text>
-              <text id="VK91" x="445" y="190" text-anchor="end"  fill="black" font-size="15"></text>
-              <text id="VK92" x="445" y="205" text-anchor="end" fill="black" font-size="15"></text>
-              <text id="VK93" x="445" y="220" text-anchor="end" fill="black" font-size="15"></text>
-               <!-- house 10 -->
-               <polygon
-               points="350 100,450 150,350 200,250 150"
-               style="fill: none; stroke: black; stroke-width: 1"
-               id="house10"
-               />
-               <text id="box1" x="268" y="155" text-anchor="middle" fill="black" font-size="15">10</text> 
-               <text id="VK101" x="305" y="135" fill="black" font-size="15"></text>
-               <text id="VK102" x="305" y="155" fill="black" font-size="15"></text>
-               <text id="VK103" x="305" y="175" fill="black" font-size="15"></text>
-              <!--house 11  -->
-              <polygon
-              points="450 50,350 100,450 150"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house11"
-              />
-              <text id="box1" x="370" y="105" text-anchor="middle" fill="black" font-size="15">11</text>
-              <text id="VK111" x="445" y="85" text-anchor="end"  fill="black" font-size="15"></text>
-              <text id="VK112" x="445" y="100" text-anchor="end" fill="black" font-size="15"></text>
-              <text id="VK113" x="445" y="115" text-anchor="end" fill="black" font-size="15"></text>
-              <!-- house 12 -->
-              <polygon
-              points="250 50,350 100,450 50"
-              style="fill: none; stroke: black; stroke-width: 1"
-              id="house12"
-              />
-              <text id="box1" x="350" y="96" text-anchor="middle" fill="black" font-size="15">12</text>
-              <text id="VK121" x="350" y="65"  text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="VK122" x="350" y="80" text-anchor="middle" fill="black" font-size="15"></text>
-              <text id="VK123" x="350" y="105" text-anchor="middle" fill="black" font-size="15"></text>
-              </svg>
+      <div class="rounded-xl border border-[#EBE6DD] overflow-hidden shadow-sm">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left table-fixed select-none">
+            <thead
+              class="text-[11px] text-[#8C7A6B] uppercase bg-[#F9F6F0] border-b border-[#EBE6DD]"
+            >
+              <tr>
+                <th
+                  class="w-16 px-2 py-4 font-bold text-center tracking-wider border-r border-[#EBE6DD]"
+                >
+                  House
+                </th>
+                <th
+                  *ngFor="let p of _houselist[0].planetList"
+                  class="px-1 py-4 font-bold text-center tracking-wider truncate"
+                >
+                  {{ p.name }}
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#EBE6DD]">
+              <tr
+                *ngFor="let house of _houselist"
+                class="hover:bg-[#FDFBF7] transition-colors group h-11"
+              >
+                <td
+                  class="px-2 py-1 font-bold text-[#4A3F35] text-center bg-[#F9F6F0]/50 border-r border-[#EBE6DD]"
+                >
+                  {{ house.name }}
+                </td>
+                <td
+                  *ngFor="let planet of house.planetList"
+                  class="p-0 text-center relative hover:bg-[#F9F6F0] transition-colors"
+                >
+                  <label
+                    class="absolute inset-0 flex justify-center items-center cursor-pointer group/cell"
+                  >
+                    <input
+                      type="checkbox"
+                      [(ngModel)]="planet.isselected"
+                      (change)="onPlanetChange()"
+                      class="peer sr-only"
+                    />
+                    <div
+                      class="w-[18px] h-[18px] rounded-[4px] border-2 border-[#EBE6DD] bg-white peer-checked:bg-[#D97743] peer-checked:border-[#D97743] flex items-center justify-center transition-all duration-200 group-hover/cell:border-[#D97743]/50 shadow-sm"
+                    >
+                      <svg
+                        class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100 transition-opacity duration-200"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="3.5"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Reset Button: Now utilizes [disabled] logic and styling -->
+      <div class="mt-4 flex justify-end">
+        <button
+          (click)="showResetModal = true"
+          [disabled]="!hasActiveSelections"
+          class="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:text-red-500"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+            />
+          </svg>
+          Clear Active Chart
+        </button>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN AREA: The Charts -->
+    <main
+      class="xl:col-span-7 flex flex-col justify-center h-full"
+      id="printSection"
+    >
+      <!-- Forced grid-cols-2 in print to prevent wrapping to next page -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 print:gap-4 w-full"
+      >
+        <!-- LAGNA KUNDLI -->
+        <div
+          class="bg-white p-8 print:p-2 rounded-2xl shadow-sm border border-[#EBE6DD] print:border-0 print:shadow-none flex flex-col items-center relative overflow-hidden h-fit"
+        >
+          <!-- Hidden decorative blur in print -->
+          <div
+            class="absolute -top-20 -right-20 w-40 h-40 bg-[#D97743]/5 rounded-full blur-3xl print:hidden"
+          ></div>
+
+          <h2
+            class="text-lg font-bold text-[#4A3F35] mb-8 print:mb-4 uppercase tracking-[0.2em] relative z-10"
+          >
+            Lagna Kundli
+          </h2>
+
+          <div
+            class="relative w-full max-w-[340px] aspect-square border-[1.5px] border-[#8C7A6B] overflow-hidden bg-[#FDFBF7] z-10"
+          >
+            <div
+              class="absolute top-0 left-0 w-[141.4%] h-0 border-t-[1.5px] border-[#8C7A6B] origin-top-left rotate-45 pointer-events-none"
+            ></div>
+            <div
+              class="absolute top-0 right-0 w-[141.4%] h-0 border-t-[1.5px] border-[#8C7A6B] origin-top-right -rotate-45 pointer-events-none"
+            ></div>
+            <div
+              class="absolute inset-0 m-auto w-[50%] h-[50%] border-[1.5px] border-[#8C7A6B] rotate-45 bg-white/60 pointer-events-none"
+            ></div>
+
+            <div
+              class="absolute top-[25%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">1</span>
+              <div
+                class="text-sm font-bold text-[#D97743] text-center leading-tight max-w-[60px]"
+              >
+                {{ lagnaChartData[1].join(" ") }}
               </div>
             </div>
-            <div class="row">
-            <!-- <div class="col-1">
-            </div> -->
-            <div class="col p-3">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th scope="col" class="text-right">House No.</th>
-                      <th scope="col" class="w-100"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th class="text-right" scope="row">1</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">2</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">3</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">4</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">5</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">6</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">7</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">8</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">9</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">10</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">11</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">12</th>
-                      <td></td>
-                    </tr>
-  
-                  </tbody>
-                </table>
-              
+            <div
+              class="absolute top-[15%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">2</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ lagnaChartData[2].join(" ") }}
+              </div>
             </div>
-            <div class="col p-3">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th scope="col" class="text-right">House No.</th>
-                      <th scope="col" class="w-100"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row" class="text-right">1</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">2</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">3</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">4</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">5</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">6</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">7</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right"> 8</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">9</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">10</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">11</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-right">12</th>
-                      <td></td>
-                    </tr>
-  
-                  </tbody>
-                </table>
+            <div
+              class="absolute top-[25%] left-[15%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">3</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ lagnaChartData[3].join(" ") }}
+              </div>
             </div>
-            <!-- <div class="col-1">
-            </div> -->
+            <div
+              class="absolute top-[50%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">4</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+              >
+                {{ lagnaChartData[4].join(" ") }}
+              </div>
             </div>
-        </div>
-        <div class="col-4 background-color: #f9faf8;" id="noPrint">
-          <div class="row" >
-            <div *ngFor="let kundli of _kundliList" class="col p-1 m-1">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" name="{{kundli.name}}"
-                id="kundaliCheckbox{{kundli.id}}" (change)="onKundliChange($event)"  [(ngModel)]="kundli.isSelected"  [disabled]="!kundli.isSelected && checkedNumber == limitNumber"> {{kundli.name}}
+            <div
+              class="absolute top-[75%] left-[15%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">5</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ lagnaChartData[5].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[85%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">6</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+              >
+                {{ lagnaChartData[6].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[75%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">7</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ lagnaChartData[7].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[85%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">8</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ lagnaChartData[8].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[75%] left-[85%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">9</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ lagnaChartData[9].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[50%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+                >10</span
+              >
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+              >
+                {{ lagnaChartData[10].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[25%] left-[85%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+                >11</span
+              >
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ lagnaChartData[11].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[15%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+                >12</span
+              >
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+              >
+                {{ lagnaChartData[12].join(" ") }}
               </div>
             </div>
           </div>
-           <form (ngSubmit)="onsubmit()">
-            <div>
-                <!-- <div *ngFor="let house of _houselist">
-                    <div *ngFor="let planet of house.planetList">
-                        <div class="form-check"><input type="checkbox" class="form-check-input" name="{{planet.name}}" (change)="onchange()" [(ngModel)]="planet.isselected"></div>
-                        <div><label class="form-check-label">{{planet.name}}</label></div>
-                    </div>
-                </div> -->
+        </div>
 
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th *ngFor="let planet of getplanets()" scope="col">{{planet.name}}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let house of _houselist">
-                        <th scope="row">{{house.name}}</th>
-                        <td *ngFor="let planet of house.planetList"><div class="form-check"><input type="checkbox" id="checkboxes" class="form-check-input" name="{{planet.name}}" (change)="onchange()" [(ngModel)]="planet.isselected"></div></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                <div>
-                    <input type="submit" class="btn btn-primary" value="submit">
-                </div>
+        <!-- VARSHA KUNDLI -->
+        <div
+          class="bg-white p-8 print:p-2 rounded-2xl shadow-sm border border-[#EBE6DD] print:border-0 print:shadow-none flex flex-col items-center relative overflow-hidden h-fit"
+        >
+          <!-- Hidden decorative blur in print -->
+          <div
+            class="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/5 rounded-full blur-3xl print:hidden"
+          ></div>
+
+          <h2
+            class="text-lg font-bold text-[#4A3F35] mb-8 print:mb-4 uppercase tracking-[0.2em] relative z-10"
+          >
+            Varsha Kundli
+          </h2>
+
+          <div
+            class="relative w-full max-w-[340px] aspect-square border-[1.5px] border-[#8C7A6B] overflow-hidden bg-[#FDFBF7] z-10"
+          >
+            <div
+              class="absolute top-0 left-0 w-[141.4%] h-0 border-t-[1.5px] border-[#8C7A6B] origin-top-left rotate-45 pointer-events-none"
+            ></div>
+            <div
+              class="absolute top-0 right-0 w-[141.4%] h-0 border-t-[1.5px] border-[#8C7A6B] origin-top-right -rotate-45 pointer-events-none"
+            ></div>
+            <div
+              class="absolute inset-0 m-auto w-[50%] h-[50%] border-[1.5px] border-[#8C7A6B] rotate-45 bg-white/60 pointer-events-none"
+            ></div>
+
+            <div
+              class="absolute top-[25%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">1</span>
+              <div
+                class="text-sm font-bold text-blue-600 text-center leading-tight max-w-[60px]"
+              >
+                {{ varshaChartData[1].join(" ") }}
+              </div>
             </div>
-           </form>
-         </div>
+            <div
+              class="absolute top-[15%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">2</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ varshaChartData[2].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[25%] left-[15%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">3</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ varshaChartData[3].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[50%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">4</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+              >
+                {{ varshaChartData[4].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[75%] left-[15%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">5</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ varshaChartData[5].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[85%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">6</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+              >
+                {{ varshaChartData[6].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[75%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">7</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ varshaChartData[7].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[85%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">8</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ varshaChartData[8].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[75%] left-[85%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">9</span>
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ varshaChartData[9].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[50%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+                >10</span
+              >
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+              >
+                {{ varshaChartData[10].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[25%] left-[85%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+                >11</span
+              >
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+              >
+                {{ varshaChartData[11].join(" ") }}
+              </div>
+            </div>
+            <div
+              class="absolute top-[15%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            >
+              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+                >12</span
+              >
+              <div
+                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+              >
+                {{ varshaChartData[12].join(" ") }}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </main>
+  </div>
+
+  <div
+    *ngIf="showResetModal"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm print:hidden animate-in fade-in duration-200"
+  >
+    <div class="absolute inset-0" (click)="showResetModal = false"></div>
+    <div
+      class="bg-white rounded-2xl p-7 max-w-md w-full mx-4 shadow-2xl border border-[#EBE6DD] relative z-10 animate-in zoom-in-95 duration-200"
+    >
+      <div
+        class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mb-5"
+      >
+        <svg
+          class="w-6 h-6 text-red-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+          />
+        </svg>
+      </div>
+
+      <h3 class="text-xl font-bold text-[#4A3F35] mb-2">Clear Chart Data?</h3>
+      <p class="text-slate-500 mb-8 leading-relaxed">
+        Are you sure you want to remove all planets from the
+        <span class="font-bold text-[#D97743]"
+          >{{ kundliType === "1" ? "Lagna" : "Varsha" }} Kundli</span
+        >? This action cannot be undone.
+      </p>
+
+      <div class="flex justify-end space-x-3">
+        <button
+          (click)="showResetModal = false"
+          class="px-5 py-2.5 rounded-xl font-semibold text-slate-600 hover:bg-slate-100 transition-colors"
+        >
+          Cancel
+        </button>
+        <button
+          (click)="confirmReset()"
+          class="px-5 py-2.5 rounded-xl font-semibold text-white bg-red-500 hover:bg-red-600 shadow-sm transition-colors"
+        >
+          Yes, Clear Chart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

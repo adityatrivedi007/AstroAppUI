@@ -1,6 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
-@media print{
-    #noPrint{
-        display: none !important;
-    }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f9f6f0;
+  color: #4a3f35;
+}
+
+/* Force browsers to print exact colors and backgrounds */
+@media print {
+  body {
+    background-color: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
