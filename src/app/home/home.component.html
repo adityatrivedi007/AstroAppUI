@@ -87,17 +87,35 @@
                 </td>
                 <td
                   *ngFor="let planet of house.planetList"
-                  class="px-2 py-2.5 text-center"
+                  class="p-0 text-center"
                 >
-                  <div class="flex justify-center items-center h-full">
-                    <!-- Checkboxes now auto-save! -->
+                  <!-- Custom Animated Checkbox -->
+                  <label
+                    class="flex justify-center items-center w-full h-full py-3 cursor-pointer group/box"
+                  >
                     <input
                       type="checkbox"
                       [(ngModel)]="planet.isselected"
                       (change)="onPlanetChange()"
-                      class="saas-checkbox"
+                      class="peer sr-only"
                     />
-                  </div>
+                    <div
+                      class="w-5 h-5 rounded border-2 border-[#EBE6DD] bg-white group-hover/box:border-[#D97743]/50 peer-checked:bg-[#D97743] peer-checked:border-[#D97743] transition-all duration-200 flex items-center justify-center shadow-sm"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-3.5 w-3.5 text-white scale-0 peer-checked:scale-100 transition-transform duration-200"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </label>
                 </td>
               </tr>
             </tbody>
@@ -113,7 +131,6 @@
         <div
           class="bg-white p-8 rounded-2xl shadow-sm border border-[#EBE6DD] flex flex-col items-center relative overflow-hidden"
         >
-          <!-- Decorative subtle warm bloom -->
           <div
             class="absolute -top-20 -right-20 w-40 h-40 bg-[#D97743]/5 rounded-full blur-3xl"
           ></div>
@@ -137,129 +154,158 @@
               class="absolute inset-0 m-auto w-[50%] h-[50%] border-[1.5px] border-[#8C7A6B] rotate-45 bg-white/60"
             ></div>
 
-            <!-- Perfected North Indian Geometry -->
+            <!-- House 1 -->
             <div
-              class="absolute top-[18%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">1</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >1</span
+              >
               <div
-                class="text-sm font-bold text-[#D97743] text-center leading-tight max-w-[60px]"
+                class="text-[13px] font-bold text-[#D97743] text-center leading-tight max-w-[60px]"
               >
                 {{ lagnaChartData[1].join(" ") }}
               </div>
             </div>
+            <!-- House 2 -->
             <div
-              class="absolute top-[20%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[15%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">2</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >2</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[2].join(" ") }}
               </div>
             </div>
+            <!-- House 3 -->
             <div
-              class="absolute top-[30%] left-[20%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[25%] left-[15%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">3</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >3</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[3].join(" ") }}
               </div>
             </div>
+            <!-- House 4 -->
             <div
-              class="absolute top-[50%] left-[18%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">4</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >4</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ lagnaChartData[4].join(" ") }}
               </div>
             </div>
+            <!-- House 5 -->
             <div
-              class="absolute top-[70%] left-[20%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[75%] left-[15%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">5</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >5</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[5].join(" ") }}
               </div>
             </div>
+            <!-- House 6 -->
             <div
-              class="absolute top-[80%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[85%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">6</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >6</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[6].join(" ") }}
               </div>
             </div>
+            <!-- House 7 -->
             <div
-              class="absolute top-[82%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">7</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >7</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ lagnaChartData[7].join(" ") }}
               </div>
             </div>
+            <!-- House 8 -->
             <div
-              class="absolute top-[80%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[85%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">8</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >8</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[8].join(" ") }}
               </div>
             </div>
+            <!-- House 9 -->
             <div
-              class="absolute top-[70%] left-[80%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[75%] left-[85%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">9</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >9</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[9].join(" ") }}
               </div>
             </div>
+            <!-- House 10 -->
             <div
-              class="absolute top-[50%] left-[82%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-1/2 left-3/4 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
                 >10</span
               >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ lagnaChartData[10].join(" ") }}
               </div>
             </div>
+            <!-- House 11 -->
             <div
-              class="absolute top-[30%] left-[80%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[25%] left-[85%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
                 >11</span
               >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[11].join(" ") }}
               </div>
             </div>
+            <!-- House 12 -->
             <div
-              class="absolute top-[20%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[15%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
                 >12</span
               >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ lagnaChartData[12].join(" ") }}
               </div>
@@ -295,127 +341,145 @@
             ></div>
 
             <div
-              class="absolute top-[18%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">1</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >1</span
+              >
               <div
-                class="text-sm font-bold text-blue-600 text-center leading-tight max-w-[60px]"
+                class="text-[13px] font-bold text-blue-600 text-center leading-tight max-w-[60px]"
               >
                 {{ varshaChartData[1].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[20%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[15%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">2</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >2</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[2].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[30%] left-[20%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[25%] left-[15%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">3</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >3</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[3].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[50%] left-[18%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">4</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >4</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ varshaChartData[4].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[70%] left-[20%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[75%] left-[15%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">5</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >5</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[5].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[80%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[85%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">6</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >6</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[6].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[82%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">7</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >7</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ varshaChartData[7].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[80%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[85%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">8</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >8</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[8].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[70%] left-[80%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[75%] left-[85%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5">9</span>
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
+                >9</span
+              >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[9].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[50%] left-[82%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-1/2 left-3/4 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
                 >10</span
               >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
               >
                 {{ varshaChartData[10].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[30%] left-[80%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[25%] left-[85%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
                 >11</span
               >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[11].join(" ") }}
               </div>
             </div>
             <div
-              class="absolute top-[20%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              class="absolute top-[15%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
             >
-              <span class="text-[10px] text-[#A69B8F] font-bold mb-0.5"
+              <span class="text-[10px] text-[#A69B8F] font-semibold mb-0.5"
                 >12</span
               >
               <div
-                class="text-sm font-bold text-[#4A3F35] text-center leading-tight max-w-[60px]"
+                class="text-[13px] font-bold text-[#4A3F35] text-center leading-tight max-w-[50px]"
               >
                 {{ varshaChartData[12].join(" ") }}
               </div>

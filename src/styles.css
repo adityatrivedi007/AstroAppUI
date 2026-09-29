@@ -8,8 +8,3 @@ body {
   /* A soft, deep stone brown for text */
   color: #4A3F35; 
 }
-
-/* Modern SaaS Checkbox */
-.saas-checkbox {
-  @apply w-5 h-5 text-[#D97743] bg-white border-gray-300 rounded cursor-pointer focus:ring-[#D97743] focus:ring-2 transition duration-200 ease-in-out;
-}
