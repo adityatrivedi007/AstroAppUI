@@ -5,22 +5,22 @@ import { PrintpageComponent } from './printpage/printpage.component';
 
 const routes: Routes = [
   {
-    path: '', 
-    redirectTo: 'home', 
-    pathMatch: 'full' // This catches the default empty route
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'printpage',
-    component: PrintpageComponent
-  }
+    component: PrintpageComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
