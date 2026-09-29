@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
   _houselist: House[] = [];
   kundliType: string = '1';
 
+  // Modal State Control
+  showResetModal: boolean = false;
+
   lagnaChartData: Record<number, string[]> = {};
   varshaChartData: Record<number, string[]> = {};
 
@@ -54,7 +57,6 @@ export class HomeComponent implements OnInit {
     }));
   }
 
-  // Auto-Save: Fires instantly whenever a checkbox is clicked
   onPlanetChange() {
     const targetChart =
       this.kundliType === '1' ? this.lagnaChartData : this.varshaChartData;
@@ -65,7 +67,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // State Switcher: Repopulates the grid visually when changing tabs
   switchChart(type: string) {
     this.kundliType = type;
     const targetChart =
@@ -77,6 +78,27 @@ export class HomeComponent implements OnInit {
         planet.isselected = savedPlanets.includes(planet.name);
       });
     });
+  }
+
+  // Clear Active Chart Logic
+  confirmReset() {
+    const targetChart =
+      this.kundliType === '1' ? this.lagnaChartData : this.varshaChartData;
+
+    // Clear background data for the active chart
+    for (let i = 1; i <= 12; i++) {
+      targetChart[i] = [];
+    }
+
+    // Visually uncheck everything in the table
+    this._houselist.forEach((house) => {
+      house.planetList.forEach((planet) => {
+        planet.isselected = false;
+      });
+    });
+
+    // Close the modal
+    this.showResetModal = false;
   }
 
   printThisPage() {
