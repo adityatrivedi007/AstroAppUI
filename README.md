@@ -1,27 +1,56 @@
 # AstroAppUI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+A modern, minimal astrological dashboard designed to manage, visualize, and print Lagna and Varsha Kundli charts.
 
-## Development server
+Originally scaffolded in Angular 15, this project has been fully upgraded to **Angular 17** to utilize the high-performance `esbuild` compilation engine, and restyled from the ground up using **Tailwind CSS**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **Modern SaaS Aesthetic:** A clean, warm beige and terracotta interface (`#F9F6F0`) replacing standard browser defaults with custom-drawn interactive elements.
+- **Pure CSS Chart Geometry:** The Kundli diamond charts are rendered entirely using CSS Grid and absolute positioning, removing the need for static SVGs and allowing mathematical precision for text alignment.
+- **Auto-Saving State:** Planet selections automatically save to the active chart's memory in real-time, allowing seamless toggling between the Lagna and Varsha views.
+- **Optimized Print Layout:** Includes a custom `@media print` configuration that perfectly scales the charts to a single page, strips unnecessary UI controls, and forces browsers to render the exact aesthetic background colors.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tech Stack
 
-## Build
+- **Framework:** Angular 17
+- **Build System:** `@angular-devkit/build-angular:application` (esbuild/Vite)
+- **Styling:** Tailwind CSS (v3)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Quick Start
 
-## Running unit tests
+### 1. Install Dependencies
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Because this project was upgraded across major Node and Angular versions, you may need to use the legacy peer dependencies flag during your first clean installation:
 
-## Running end-to-end tests
+```bash
+npm install --legacy-peer-deps
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 2. Development Server
 
-## Further help
+Run the local development server:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```Bash
+npm start
+```
+
+Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. The new esbuild engine ensures startup and hot-reloads happen in milliseconds.
+
+### 3. Build for Production
+
+To compile the application into an output directory (dist/astro-app-ui):
+
+```Bash
+npm run build
+```
+
+Running Unit Tests
+Run `npm test` (or `ng test`) to execute the unit tests via Jasmine and Karma.
+
+Project Structure
+`src/app/home/` - Contains the core dashboard, data grid, chart rendering logic, and print layout configurations.
+
+`src/styles.css` - Contains the Tailwind directives, base theme colors, custom SaaS checkbox styling, and print-specific CSS modifiers.
+
+`tailwind.config.js` - The Tailwind engine configuration.
