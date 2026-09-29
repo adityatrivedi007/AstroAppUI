@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "AstroAppUI:build:production"
+              "buildTarget": "AstroAppUI:build:production"
             },
             "development": {
-              "browserTarget": "AstroAppUI:build:development"
+              "buildTarget": "AstroAppUI:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AstroAppUI:build"
+            "buildTarget": "AstroAppUI:build"
           }
         },
         "test": {
