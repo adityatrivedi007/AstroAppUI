@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   _houselist: House[] = [];
   kundliType: string = '1';
 
-  // Modal State Control
   showResetModal: boolean = false;
 
   lagnaChartData: Record<number, string[]> = {};
@@ -57,6 +56,14 @@ export class HomeComponent implements OnInit {
     }));
   }
 
+  // --- NEW: Check if the active chart has any planets selected ---
+  get hasActiveSelections(): boolean {
+    const targetChart =
+      this.kundliType === '1' ? this.lagnaChartData : this.varshaChartData;
+    // Returns true if at least one house has a planet in it
+    return Object.values(targetChart).some((planets) => planets.length > 0);
+  }
+
   onPlanetChange() {
     const targetChart =
       this.kundliType === '1' ? this.lagnaChartData : this.varshaChartData;
@@ -80,24 +87,20 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // Clear Active Chart Logic
   confirmReset() {
     const targetChart =
       this.kundliType === '1' ? this.lagnaChartData : this.varshaChartData;
 
-    // Clear background data for the active chart
     for (let i = 1; i <= 12; i++) {
       targetChart[i] = [];
     }
 
-    // Visually uncheck everything in the table
     this._houselist.forEach((house) => {
       house.planetList.forEach((planet) => {
         planet.isselected = false;
       });
     });
 
-    // Close the modal
     this.showResetModal = false;
   }
 

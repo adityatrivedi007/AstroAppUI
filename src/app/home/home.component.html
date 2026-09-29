@@ -1,7 +1,9 @@
-<div class="min-h-screen p-6 max-w-[1600px] mx-auto relative">
-  <!-- Aesthetic Header -->
+<div
+  class="min-h-screen p-6 print:p-0 max-w-[1600px] mx-auto relative print:bg-white"
+>
+  <!-- Header (Hidden during print so it doesn't waste paper space) -->
   <header
-    class="flex justify-between items-center bg-white p-5 rounded-2xl shadow-sm mb-8 border border-[#EBE6DD]"
+    class="flex justify-between items-center bg-white p-5 rounded-2xl shadow-sm mb-8 border border-[#EBE6DD] print:hidden"
   >
     <h1 class="text-2xl font-bold text-[#4A3F35] tracking-tight">
       AstroApp Dashboard
@@ -15,11 +17,10 @@
   </header>
 
   <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 print:block">
-    <!-- LEFT SIDEBAR -->
+    <!-- LEFT SIDEBAR: Hidden during print -->
     <aside
       class="xl:col-span-5 bg-white p-6 rounded-2xl shadow-sm border border-[#EBE6DD] print:hidden"
     >
-      <!-- Modern Segmented Control Toggle -->
       <div class="mb-6 flex justify-between items-end">
         <div class="w-full">
           <h3
@@ -58,7 +59,6 @@
         </div>
       </div>
 
-      <!-- Precision SaaS Data Grid -->
       <div class="rounded-xl border border-[#EBE6DD] overflow-hidden shadow-sm">
         <div class="overflow-x-auto">
           <table class="w-full text-sm text-left table-fixed select-none">
@@ -89,7 +89,6 @@
                 >
                   {{ house.name }}
                 </td>
-
                 <td
                   *ngFor="let planet of house.planetList"
                   class="p-0 text-center relative hover:bg-[#F9F6F0] transition-colors"
@@ -103,7 +102,6 @@
                       (change)="onPlanetChange()"
                       class="peer sr-only"
                     />
-
                     <div
                       class="w-[18px] h-[18px] rounded-[4px] border-2 border-[#EBE6DD] bg-white peer-checked:bg-[#D97743] peer-checked:border-[#D97743] flex items-center justify-center transition-all duration-200 group-hover/cell:border-[#D97743]/50 shadow-sm"
                     >
@@ -129,11 +127,12 @@
         </div>
       </div>
 
-      <!-- Reset Button beneath grid -->
+      <!-- Reset Button: Now utilizes [disabled] logic and styling -->
       <div class="mt-4 flex justify-end">
         <button
           (click)="showResetModal = true"
-          class="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors flex items-center gap-1.5"
+          [disabled]="!hasActiveSelections"
+          class="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:text-red-500"
         >
           <svg
             class="w-4 h-4"
@@ -158,17 +157,21 @@
       class="xl:col-span-7 flex flex-col justify-center h-full"
       id="printSection"
     >
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+      <!-- Forced grid-cols-2 in print to prevent wrapping to next page -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 print:gap-4 w-full"
+      >
         <!-- LAGNA KUNDLI -->
         <div
-          class="bg-white p-8 rounded-2xl shadow-sm border border-[#EBE6DD] flex flex-col items-center relative overflow-hidden h-fit"
+          class="bg-white p-8 print:p-2 rounded-2xl shadow-sm border border-[#EBE6DD] print:border-0 print:shadow-none flex flex-col items-center relative overflow-hidden h-fit"
         >
+          <!-- Hidden decorative blur in print -->
           <div
-            class="absolute -top-20 -right-20 w-40 h-40 bg-[#D97743]/5 rounded-full blur-3xl"
+            class="absolute -top-20 -right-20 w-40 h-40 bg-[#D97743]/5 rounded-full blur-3xl print:hidden"
           ></div>
 
           <h2
-            class="text-lg font-bold text-[#4A3F35] mb-8 uppercase tracking-[0.2em] relative z-10"
+            class="text-lg font-bold text-[#4A3F35] mb-8 print:mb-4 uppercase tracking-[0.2em] relative z-10"
           >
             Lagna Kundli
           </h2>
@@ -317,14 +320,15 @@
 
         <!-- VARSHA KUNDLI -->
         <div
-          class="bg-white p-8 rounded-2xl shadow-sm border border-[#EBE6DD] flex flex-col items-center relative overflow-hidden h-fit"
+          class="bg-white p-8 print:p-2 rounded-2xl shadow-sm border border-[#EBE6DD] print:border-0 print:shadow-none flex flex-col items-center relative overflow-hidden h-fit"
         >
+          <!-- Hidden decorative blur in print -->
           <div
-            class="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/5 rounded-full blur-3xl"
+            class="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/5 rounded-full blur-3xl print:hidden"
           ></div>
 
           <h2
-            class="text-lg font-bold text-[#4A3F35] mb-8 uppercase tracking-[0.2em] relative z-10"
+            class="text-lg font-bold text-[#4A3F35] mb-8 print:mb-4 uppercase tracking-[0.2em] relative z-10"
           >
             Varsha Kundli
           </h2>
@@ -474,7 +478,6 @@
     </main>
   </div>
 
-  <!-- Reset Confirmation Modal -->
   <div
     *ngIf="showResetModal"
     class="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm print:hidden animate-in fade-in duration-200"

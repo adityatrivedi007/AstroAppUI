@@ -3,8 +3,15 @@
 @tailwind utilities;
 
 body {
-  /* An aesthetic warm, subtle beige */
-  background-color: #F9F6F0; 
-  /* A soft, deep stone brown for text */
-  color: #4A3F35; 
+  background-color: #f9f6f0;
+  color: #4a3f35;
+}
+
+/* Force browsers to print exact colors and backgrounds */
+@media print {
+  body {
+    background-color: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
